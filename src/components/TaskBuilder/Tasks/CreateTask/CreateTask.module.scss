@@ -1,0 +1,52 @@
+@import "../../../../assets/sass/colors";
+
+@import "../../../../assets/sass/typography";
+
+.CreateTask {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    background-color: $tasksBackground;
+    border-radius: .3rem;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: .5rem;
+        min-width: 4rem;
+        min-height: 1.5rem;
+        border-radius: 1rem;
+        background: $darkGrayishBlue;
+        border: none;
+        font-size: 1rem;
+        color: $tasksBackground;
+    }
+
+    input {
+        margin: 0 1rem;
+        height: 1.5rem;
+        width: 100%;
+        background-color: inherit;
+        border: none;
+        font-family: $mainFont;
+        color: $darkGrayishBlue;
+    }
+
+    button:focus,
+    input:focus {
+        outline: none;
+    }
+}
+
+.Light {
+    background-color: $veryLightGray;
+
+    button {
+        background: $darkGrayishBlue;
+        color: $veryLightGrayishBlue;
+    }
+}

@@ -1,0 +1,60 @@
+@import "../../../assets/sass/colors";
+
+.Tasks {
+    width: 100%;
+    transition: all 100ms linear;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        min-height: 20rem;
+        max-height: 25rem;
+        overflow-y: scroll;
+        background-color: $tasksBackground;
+        border-radius: .3rem .3rem 0 0;
+
+        div {
+            display: flex;
+            min-height: 20rem;
+            justify-content: center;
+            align-items: center;
+            color: $darkGrayishBlue;
+        }
+    }
+
+    ul::-webkit-scrollbar {
+        background-color: $tasksBackground;
+    }
+
+    ul::-webkit-scrollbar-thumb {
+        background-color: $darkGrayishBlue;
+        border-radius: .5rem;
+    }
+
+    .Active {
+        div {
+            display: none;
+        }
+    }
+}
+
+.Light {
+    transition: all 100ms linear;
+
+    ul {
+        background-color: $veryLightGray;
+
+        button {
+            border: 1px solid $darkGrayishBlue;
+        }
+    }
+
+    ul::-webkit-scrollbar {
+        background-color: $veryLightGray;
+    }
+
+    ul::-webkit-scrollbar-thumb {
+        background-color: $darkGrayishBlue;
+        border-radius: .5rem;
+    }
+}

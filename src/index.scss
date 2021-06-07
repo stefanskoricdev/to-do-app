@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* background-color: rgba(22, 23, 34, 1); */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  button {
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+  }
+}

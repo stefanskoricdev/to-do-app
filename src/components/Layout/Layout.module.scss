@@ -1,0 +1,16 @@
+@import "../../assets/sass/colors";
+
+.Main {
+    position: relative;
+    height: 100vh;
+}
+
+.Dark {
+    transition: all 100ms linear;
+    background-color: rgba(22, 23, 34, 1);
+}
+
+.Light {
+    transition: all 100ms linear;
+    background-color: $veryLightGrayishBlue;
+}

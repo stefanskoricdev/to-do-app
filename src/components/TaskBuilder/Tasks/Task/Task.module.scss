@@ -1,0 +1,51 @@
+@import "../../../../assets/sass/colors";
+
+.Task {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid $darkGrayishBlue;
+    color: $darkGrayishBlue;
+    position: relative;
+
+    button {
+        min-width: 1.5rem;
+        min-height: 1.5rem;
+        border-radius: 100%;
+        background: inherit;
+        border: 1px solid $lightGrayFont;
+    }
+
+    p {
+        margin: 0 1rem;
+    }
+
+    img {
+        position: absolute;
+        right: .7rem;
+        visibility: hidden;
+    }
+}
+
+.Checked {
+    button {
+        background-image: url("../../../../assets/images/icon-check.svg"), $checkBackground;
+        background-position: center;
+        background-size: 50%, cover;
+        background-repeat: no-repeat;
+    }
+
+    p {
+        text-decoration: line-through;
+    }
+}
+
+
+
+.Task:hover {
+    img {
+        visibility: visible;
+    }
+}

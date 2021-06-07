@@ -1,0 +1,45 @@
+@import "../../../../assets/sass/colors";
+
+.TaskFooter {
+    color: $darkGrayishBlue;
+
+    div {
+        display: flex;
+        padding: .5rem;
+        background-color: $tasksBackground;
+        border-radius: .3rem;
+
+        button {
+            border: none;
+            background-color: inherit;
+            color: $darkGrayishBlue;
+            font-size: inherit;
+        }
+    }
+
+    :first-child {
+        justify-content: space-between;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    :nth-child(2) {
+        margin: 1rem 0;
+        justify-content: center;
+
+        button {
+            margin: .5rem .2rem;
+        }
+
+        button:focus {
+            color: $brightBlue;
+            outline: none;
+        }
+    }
+}
+
+.Light {
+    div {
+        background-color: $veryLightGray;
+    }
+}

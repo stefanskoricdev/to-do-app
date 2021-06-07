@@ -1,0 +1,22 @@
+@import "../../assets/sass/colors";
+
+.TaskBuilder {
+    width: 38rem;
+    max-width: 80%;
+    margin: auto;
+    color: $lightGrayFont;
+    position: absolute;
+    top: -10rem;
+    left: 10%;
+
+    img:hover {
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 608px) {
+    .TaskBuilder {
+        top: -12rem;
+        left: calc(50% - 304px);
+    }
+}
