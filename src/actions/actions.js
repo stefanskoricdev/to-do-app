@@ -4,19 +4,19 @@ export const add = (taskContent, taskId) => ({
   id: taskId,
 });
 
-export const remove = (id) => ({
+export const remove = (taskId) => ({
   type: "DELETE_TASK",
-  payload: id,
+  id: taskId,
 });
 
-export const toggleCheck = (id) => ({
+export const toggleCheck = (taskId) => ({
   type: "TOGGLE_CHECK_TASK",
-  payload: id,
+  id: taskId,
 });
 
 export const filterChange = (type) => ({
   type: "CHANGE_FILTER",
-  payload: type,
+  taskType: type,
 });
 
 export const getData = (task) => ({

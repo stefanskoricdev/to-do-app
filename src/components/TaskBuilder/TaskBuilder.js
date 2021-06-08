@@ -37,7 +37,7 @@ const tasksReducer = (state, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) => {
-          if (task.id === action.payload) {
+          if (task.id === action.id) {
             return {
               id: task.id,
               content: task.content,
@@ -50,7 +50,7 @@ const tasksReducer = (state, action) => {
     case "DELETE_TASK":
       return {
         ...state,
-        tasks: state.tasks.filter((task) => task.id !== action.payload),
+        tasks: state.tasks.filter((task) => task.id !== action.id),
       };
     case "CLEAR_COMPLETED_TASKS":
       return {
@@ -60,7 +60,7 @@ const tasksReducer = (state, action) => {
     case "CHANGE_FILTER":
       return {
         ...state,
-        filter: action.payload,
+        filter: action.taskType,
       };
     default:
       return state;
@@ -73,6 +73,7 @@ const TaskBuilder = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { tasks, filter } = state;
+  const todosRef = db.collection("todos");
 
   useEffect(() => {
     const inputHandler = setTimeout(() => {
@@ -86,12 +87,9 @@ const TaskBuilder = (props) => {
   //DEBOUNCING USER INPUT TO 500ms,
   //SO THAT WE DONT CALL ON SETINPUT VALUE STATE CHANGE ON EVERY KEYPRESS!!!
   useEffect(() => {
-    console.log("GET_DATA_USE_EFFETCT!!");
-
     const getTasks = async () => {
       setIsLoading(true);
-      const todosRef = db.collection("todos");
-      const allTasks = await todosRef.get();
+      const allTasks = await db.collection("todos").get();
       let tasks = [];
       allTasks.docs.forEach((doc) => {
         const task = {
@@ -111,10 +109,6 @@ const TaskBuilder = (props) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
-
   const submitTaskHandler = async (e) => {
     e.preventDefault();
     if (inputValue.trim() === "") {
@@ -123,7 +117,7 @@ const TaskBuilder = (props) => {
     }
     try {
       setIsLoading(true);
-      const docRef = await db.collection("todos").add({
+      const docRef = await todosRef.add({
         content: inputValue,
         isCompleted: false,
         time: firebase.firestore.FieldValue.serverTimestamp(),
@@ -139,7 +133,7 @@ const TaskBuilder = (props) => {
   const deleteTaskHandler = async (e) => {
     const targetedTaskId = e.target.id;
     dispatchTasks(remove(targetedTaskId));
-    await db.collection("todos").doc(targetedTaskId).delete();
+    await todosRef.doc(targetedTaskId).delete();
   };
 
   const clearCompletedTasksHandler = () => {
@@ -149,14 +143,12 @@ const TaskBuilder = (props) => {
       type: "CLEAR_COMPLETED_TASKS",
     });
     checkedTasksIds.forEach((id) => {
-      const todosRef = db.collection("todos").doc(id);
-      todosRef.delete();
+      todosRef.doc(id).delete();
     });
   };
 
   const checkTaskHandler = async (e) => {
     const targetedTaskId = e.target.id;
-    const todosRef = db.collection("todos");
     const targetedTask = todosRef.doc(targetedTaskId);
     dispatchTasks(toggleCheck(targetedTaskId));
     try {
