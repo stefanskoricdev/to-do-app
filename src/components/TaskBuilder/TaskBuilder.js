@@ -111,6 +111,7 @@ const TaskBuilder = (props) => {
 
   const submitTaskHandler = async (e) => {
     e.preventDefault();
+    console.log(e.target.createTask.value);
     if (inputValue.trim() === "") {
       alert("Please enter task");
       return;

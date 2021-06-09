@@ -1,5 +1,7 @@
 # TODO app created with React
 
+[Link: ](https://to-do-app-e31a8.web.app/)
+
 ## Features:
 
 - Responsive design,
@@ -11,3 +13,4 @@
 ## Tech used:
 
 **React JS (React hooks and custom react hooks) with scss module styling**
+**Firebase/Firestore backend service used**
