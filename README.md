@@ -1,6 +1,6 @@
 # TODO app created with React
 
-[Link: ](https://to-do-app-e31a8.web.app/)
+[LINK](https://to-do-app-e31a8.web.app/)
 
 ## Features:
 
